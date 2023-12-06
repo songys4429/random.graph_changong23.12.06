@@ -1,0 +1,10 @@
+void setup() {
+  Serial.begin(9600);
+  randomSeed(millis()); // 랜덤 시드 초기화
+}
+
+void loop() {
+  int r = random(0, 101); // 0 에서 359 사이의 랜덤 숫자 생성
+  Serial.println(r);      // 랜덤 숫자를 시리얼로 전송
+  delay(500);            // 0.2초 대기
+}
