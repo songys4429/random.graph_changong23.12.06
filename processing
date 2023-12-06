@@ -1,0 +1,21 @@
+import processing.serial.*;
+
+Serial p;
+
+void setup() {
+  size(100, 100);
+  p = new Serial(this, "COM3", 9600);
+}
+
+void draw() {
+  if (p.available() > 0) {
+    String m = p.readStringUntil('\n');
+    if (m != null) {
+      int n = int(m.trim());
+      background(0);
+      text(n, 2,12);
+      fill(255, 255, 255);
+      rect(25, 100 - n, 50, n);
+    }
+  }
+}
